@@ -8,9 +8,10 @@ import { BASE_URL , PORT } from "./utilis/config"
 
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
-    origin: "*",
+    origin: "http://127.0.0.1:3001",
     methods: ["GET", "POST", "PUT", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Content-Encoding", "Accept-Encoding"],
+    credentials: true,
 };
 
 const app = express();
