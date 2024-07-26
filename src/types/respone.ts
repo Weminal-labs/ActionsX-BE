@@ -13,6 +13,7 @@ export interface ActionParameter {
     label?: string;
     required?: boolean;
 }
+
 export interface ActionGetResponse {
     icon: string;
     title: string;
@@ -30,11 +31,3 @@ type Action = {
   apiPath: string;
 };
 
-export const ACTIONS_CORS_HEADERS: HeadersInit = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,POST,PUT,OPTIONS",
-    "Access-Control-Allow-Headers":
-    "Content-Type, Authorization, Content-Encoding, Accept-Encoding",
-    "Content-Type": "application/json",
-  };
-  
