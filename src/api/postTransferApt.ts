@@ -5,36 +5,27 @@ export async function postTransferAptos(req: Request, res: Response): Promise<vo
     console.log(req.body);
     try {
         const config = new AptosConfig({ network: Network.TESTNET });
-        console.log("------------")
         const aptos = new Aptos(config);
-        console.log("------------")
         const { amount, toAddress, fromAddress } = req.body;
-        console.log("------------")
 
-        const transaction = await aptos.transferCoinTransaction({
-            sender: fromAddress as AccountAddressInput,
-            recipient: toAddress as AccountAddressInput,
-            amount: amount as AnyNumber,
-        });
-        console.log("------------")
+        const APTOS_COIN = "0x1::aptos_coin::AptosCoin";
 
-        // Chuyển đổi transaction thành đối tượng có thể serialize
-        const serializableTransaction = JSON.parse(JSON.stringify(transaction, (key, value) =>
-            typeof value === 'bigint' ? value.toString() : value
-        ));
-        console.log("------------",serializableTransaction)
-
-        serializableTransaction.feePayerAddress = fromAddress as AccountAddressInput;
-
-        console.log("------------", serializableTransaction);
+        const transaction: any = {
+            data: {
+              function: "0x1::coin::transfer",
+              typeArguments: [APTOS_COIN],
+              functionArguments: [
+                toAddress as AccountAddressInput,
+                Number(amount)*10**8 as AnyNumber,
+              ], // is in Octas
+            },
+        };
 
         const payload = {
-            transaction: serializableTransaction,
+            transaction: transaction,
             message: `Send ${amount} APT to ${toAddress}`
         }
-        console.log("------------")
         
-        console.log("Transaction:", transaction);
         console.log("Payload:", payload);
         res.json(payload);
     } catch (err) {
