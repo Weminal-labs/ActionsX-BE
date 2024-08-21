@@ -5,10 +5,11 @@ import { getActionsJson } from "./api/actionsRule";
 import { getTransferApt } from "./api/getTransferApt";
 import { postTransferAptos } from "./api/postTransferApt";
 import { BASE_URL, PORT } from "./utilis/config";
+import { gettAllActionsRegistry } from "./api/gettAllActionsRegistry";
 
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
-  origin: "http://localhost:3001",
+  origin: ["http://localhost:3001", "https://x.com"],
   methods: ["GET", "POST", "PUT", "OPTIONS"],
   allowedHeaders: [
     "Content-Type",
@@ -26,6 +27,7 @@ app.use(cors(ACTIONS_CORS_HEADERS));
 
 app.get("/api/actions/transfer-apt", getTransferApt);
 app.post("/api/actions/transfer-apt", postTransferAptos);
+app.get("/api/actions/actions-registry/all", gettAllActionsRegistry);
 app.get("/actions.json", getActionsJson);
 
 app.listen(PORT, () => {

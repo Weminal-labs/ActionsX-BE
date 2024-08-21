@@ -11,12 +11,14 @@ export async function postTransferAptos(
   req: Request,
   res: Response
 ): Promise<void> {
-  console.log(req.body);
+  console.log("body", req.body);
+  console.log("amount", req.body.amount);
   try {
+    // Lấy 'amount' từ req.body hoặc req.query
+    const amount = req.body.amount || req.query.amount;
+    const { toAddress } = req.body;
     const config = new AptosConfig({ network: Network.TESTNET });
     const aptos = new Aptos(config);
-    const { amount, toAddress, fromAddress } = req.body;
-
     const APTOS_COIN = "0x1::aptos_coin::AptosCoin";
 
     const transaction: any = {
