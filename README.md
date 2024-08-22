@@ -20,4 +20,4 @@ Currently in this example will have 3 endpoint :
 - mint-nft
 - voting
 
-You can paste the link to check the display on devnet via the link, check actions at: https://actionxapt.com/actions/devnet
+You can test the link to check the display on devnet via the link, test actions at: https://actionxapt.com/actions/devnet
