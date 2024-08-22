@@ -14,7 +14,6 @@ export async function postTransferAptos(
   console.log("body", req.body);
   console.log("amount", req.body.amount);
   try {
-    // Lấy 'amount' từ req.body hoặc req.query
     const amount = req.body.amount || req.query.amount;
     const { toAddress } = req.body;
     const config = new AptosConfig({ network: Network.TESTNET });
