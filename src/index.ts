@@ -11,7 +11,12 @@ import { getVoting } from "./api/getVoting";
 
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
-  origin: ["http://localhost:3001", "http://localhost:3000", "https://x.com"],
+  origin: [
+    "http://localhost:3001",
+    "http://localhost:3000",
+    "https://x.com",
+    "https://action-x-frontend.vercel.app",
+  ],
   methods: ["GET", "POST", "PUT", "OPTIONS"],
   allowedHeaders: [
     "Content-Type",
