@@ -1,2 +1,2 @@
 export const PORT = 80;
-export const BASE_URL = `https://server.actionxapt.com`;
+export const BASE_URL = `http://localhost`;
