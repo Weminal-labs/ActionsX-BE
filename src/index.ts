@@ -9,6 +9,9 @@ import { gettAllActionsRegistry } from "./api/gettAllActionsRegistry";
 import { getMintNft } from "./api/getMintNft";
 import { getVoting } from "./api/getVoting";
 
+import { postMintNFT } from './api/postMintNFT'
+import { postVoteTransaction  } from "./api/postVoting";
+
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
   origin: [
@@ -38,6 +41,8 @@ app.get("/api/actions/actions-registry/all", gettAllActionsRegistry);
 app.get("/actions.json", getActionsJson);
 app.get("/api/actions/mint-nft", getMintNft);
 app.get("/api/actions/voting", getVoting);
+app.post("/api/actions/mint-nft",postMintNFT);
+app.post("api/actions/voting", postVoteTransaction);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
