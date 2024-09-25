@@ -42,7 +42,7 @@ app.get("/actions.json", getActionsJson);
 app.get("/api/actions/mint-nft", getMintNft);
 app.get("/api/actions/voting", getVoting);
 app.post("/api/actions/mint-nft", postMintNFT);
-app.post("api/actions/voting/", postVoteTransaction);
+app.post("api/actions/voting", postVoteTransaction);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
