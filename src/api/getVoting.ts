@@ -11,8 +11,8 @@ export async function getVoting(req: Request, res: Response): Promise<void> {
       description: "Voting for Trump or Biden",
       links: {
         actions: [
-          { label: "Trump", href: `${baseHref}/voteA` },
-          { label: "Biden", href: `${baseHref}/voteB` },
+          { label: "Trump", href: `${baseHref}/0` },
+          { label: "Biden", href: `${baseHref}/1` },
         ],
       },
     };
