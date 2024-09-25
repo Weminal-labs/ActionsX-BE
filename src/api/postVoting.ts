@@ -11,10 +11,9 @@ import {
     req: Request,
     res: Response
   ): Promise<void> {
-    console.log("body", req.body);
-    console.log("vote", req.body.vote);
+    const { select } = req.params; 
     try {
-      const vote = req.body.vote;  // 0 for no, 1 for yes
+      const vote = req.body.vote;  
       const { senderAddress } = req.body;
       const config = new AptosConfig({ network: Network.TESTNET });
       const aptos = new Aptos(config);
@@ -26,7 +25,7 @@ import {
           function: VOTING_MODULE,
           typeArguments: [],
           functionArguments: [
-            vote as AnyNumber,  
+            select as AnyNumber,  
           ],
         },
       };
