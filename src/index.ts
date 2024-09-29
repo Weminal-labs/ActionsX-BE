@@ -19,6 +19,7 @@ const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
     "http://localhost:3000",
     "https://x.com",
     "https://action-x-frontend.vercel.app",
+    "https://www.actionxapt.com"
   ],
   methods: ["GET", "POST", "PUT", "OPTIONS"],
   allowedHeaders: [
