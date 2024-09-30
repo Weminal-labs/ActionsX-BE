@@ -8,9 +8,11 @@ import { BASE_URL, PORT } from "./utilis/config";
 import { gettAllActionsRegistry } from "./api/gettAllActionsRegistry";
 import { getMintNft } from "./api/getMintNft";
 import { getVoting } from "./api/getVoting";
-
+import {  getMintNftGame } from "./api/getMintNftGame";
 import { postMintNFT } from "./api/postMintNFT";
 import { postVoteTransaction } from "./api/postVoting";
+import { postMintNFTGame } from "./api/postMintNFTGame";
+
 
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
@@ -42,8 +44,10 @@ app.get("/api/actions/actions-registry/all", gettAllActionsRegistry);
 app.get("/actions.json", getActionsJson);
 app.get("/api/actions/mint-nft", getMintNft);
 app.get("/api/actions/voting", getVoting);
+app.get("/api/actions/mint-nft-game", getMintNftGame);
 app.post("/api/actions/mint-nft", postMintNFT);
 app.post("/api/actions/voting", postVoteTransaction);
+app.post("/api/actions/mint-nft-game", postMintNFTGame);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
