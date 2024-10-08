@@ -12,7 +12,8 @@ import {  getMintNftGame } from "./api/getMintNftGame";
 import { postMintNFT } from "./api/postMintNFT";
 import { postVoteTransaction } from "./api/postVoting";
 import { postMintNFTGame } from "./api/postMintNFTGame";
-
+import { getFlipGame } from "./api/getFlipGame";
+import { postFlipGame } from "./api/postFlipGame";
 
 const DEFAULT_APT_AMOUNT = 1;
 const ACTIONS_CORS_HEADERS: cors.CorsOptions = {
@@ -45,9 +46,11 @@ app.get("/actions.json", getActionsJson);
 app.get("/api/actions/mint-nft", getMintNft);
 app.get("/api/actions/voting", getVoting);
 app.get("/api/actions/mint-nft-game", getMintNftGame);
+app.get("/api/actions/play-game", getFlipGame);
 app.post("/api/actions/mint-nft", postMintNFT);
 app.post("/api/actions/voting", postVoteTransaction);
 app.post("/api/actions/mint-nft-game", postMintNFTGame);
+app.post("/api/actions/play-game", postFlipGame);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
