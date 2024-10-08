@@ -2,15 +2,15 @@ import { title } from "process";
 import { BASE_URL } from "../utilis/config";
 import { Request, Response } from "express";
 
-export async function getMintNftGame(req: Request, res: Response): Promise<void> {
+export async function getFlipGame(req: Request, res: Response): Promise<void> {
   try {
     const baseHref = `${BASE_URL}/api/actions`;
     const payload = {
-      icon: "https://assets-global.website-files.com/606f63778ec431ec1b930f1f/63dbd502218a274f2a602968_aptos.png",
-      description: "Mint your AptoGochi nft",
-      title: "AptoGochi Mint NFT",
+      icon: "https://www.fliptos.xyz/static/media/1x.4ef4a0abec902e8a40a7.webp",
+      description: "Play Coinflip Game",
+      title: "Coinflip Game",
       links: {
-        actions: [{ label: "Mint", href: `${baseHref}/mint-nft-game` }],
+        actions: [{ label: "Play", href: `${baseHref}/play-game` }],
       },
     };
     res.json(payload);
